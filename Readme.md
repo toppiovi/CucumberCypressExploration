@@ -33,3 +33,10 @@ Check the `cypress.json` config for the tests directory etc.
 Selecting elements by id/text is brittle and will break with ui/css changes.
 Use data-cy attribue instead: https://docs.cypress.io/guides/references/best-practices#Selecting-Elements
 Video for best practices: https://www.youtube.com/watch?v=5XQOK0v_YRE
+
+### CI
+Use start-server-and-test to start webserver and test in CI environment.
+Each run will generate a mp4 video by default!
+`npm install --save-dev start-server-and-test`
+`"e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run"`
+
