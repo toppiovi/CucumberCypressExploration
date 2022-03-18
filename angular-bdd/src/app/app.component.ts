@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   counter = 0;
-  increment(): void {}
-  decrement(): void {}
+  increment(): void {
+    this.counter++;
+  }
+  decrement(): void {
+    this.counter--;
+  }
 }
