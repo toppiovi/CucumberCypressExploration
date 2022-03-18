@@ -12,12 +12,12 @@ describe('My First Test', () => {
   });
 
   it('Clicking increment sets counter to 1', () => {
-    cy.contains('INCREMENT').click();
+    cy.get('[data-cy="increment"]').click();
     cy.contains('counter').contains(1);
   });
 
   it('Clicking descrement sets counter to -1', () => {
-    cy.get('#decrement').click();
+    cy.get('[data-cy="decrement"]').click();
     cy.contains('counter').contains(-1);
   });
 });
