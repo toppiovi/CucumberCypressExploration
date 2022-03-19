@@ -31,9 +31,11 @@
     "@angular/cli": "~13.2.6",
     "@angular/compiler-cli": "~13.2.0",
     "@cypress/schematic": "^1.6.0",
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
     "@types/jasmine": "~3.10.0",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.20.47",
     "cypress": "latest",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -42,5 +44,8 @@
     "karma-jasmine-html-reporter": "~1.7.0",
     "start-server-and-test": "^1.14.0",
     "typescript": "~4.5.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }

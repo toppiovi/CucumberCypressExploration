@@ -40,3 +40,55 @@ Each run will generate a mp4 video by default!
 `npm install --save-dev start-server-and-test`
 `"e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run"`
 
+## Cucumber + Cypress
+https://www.npmjs.com/package/cypress-cucumber-preprocessor#typeScript-support
+
+### Install cucumber integration
+```
+npm install --save-dev cypress-cucumber-preprocessor
+npm install --save-dev @types/cypress-cucumber-preprocessor
+```
+Adjust ./cypress/plugins/index.js 
+(index.js was index.ts by default, therefore adapt all references)
+```
+const browserify = require('@cypress/browserify-preprocessor');
+const cucumber = require('cypress-cucumber-preprocessor').default;
+const resolve = require('resolve');
+
+module.exports = (on, config) => {
+  const options = {
+    ...browserify.defaultOptions,
+    typescript: resolve.sync('typescript', { baseDir: config.projectRoot }),
+  };
+
+  on('file:preprocessor', cucumber(options));
+};
+```
+
+### Feature and step files
+Add the following line to the ./cypress.json to allow for detecting cucumber feature files (GHERKIN)
+``` 
+ "testFiles": "**/*.{feature,features}",
+```
+
+There's a naming convention for feature files and step definitions.
+- Place `<featurename>.feature` files inside `./cypress/integration`
+- Place step definition files in the respective folder as follows: `./cypress/integration/<featurename>/<stepname>.ts`
+
+
+In order to avoid detecting global feature files, place this config inside ./package.json
+```
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
+  }
+```
+
+### Run
+Simply run 
+```
+npm run e2e
+```
+
+
+Example can be found here
+https://testersdock.com/cypress-cucumber-bdd/
