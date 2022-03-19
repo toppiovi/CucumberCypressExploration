@@ -1,4 +1,8 @@
 # Exploring Cypress and Cucumber Integration
+![Ubuntu Build](https://github.com/toppiovi/CucumberCypressExploration/actions/workflows/ci-e2e.yml/badge.svg)
+
+
+
 ## Protractor vs Cypress
 ### Protractor
 - Selenium WebDriver
