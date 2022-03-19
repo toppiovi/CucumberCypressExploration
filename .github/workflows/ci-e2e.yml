@@ -1,4 +1,4 @@
-name: NodeJS with Grunt
+name: e2e testing
 
 on:
   push:
